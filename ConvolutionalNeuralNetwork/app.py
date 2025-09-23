@@ -1,4 +1,5 @@
 from flask import Flask
+from asgi_lifespan import LifespanManager
 
 app = Flask(__name__)
 
