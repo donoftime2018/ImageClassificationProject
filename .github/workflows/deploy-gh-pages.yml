@@ -24,9 +24,11 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+        working-directory: ImageExpress
 
       - name: Build Vite app
         run: npm run build      # creates ./dist
+        working-directory: ImageExpress
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
