@@ -1,0 +1,33 @@
+name: Deploy GitHub Pages
+
+    on:
+      push:
+        branches:
+          - main # Trigger on pushes to the main branch
+
+    jobs:
+      build-and-deploy:
+        runs-on: ubuntu-latest # Or your preferred runner environment
+
+        steps:
+          - name: Checkout repository
+            uses: actions/checkout@v4
+
+          # Optional: Add steps to build your site if it requires compilation (e.g., Jekyll, React, Vue)
+          # Example for a static site generator like Jekyll:
+          # - name: Setup Ruby and install Jekyll
+          #   uses: ruby/setup-ruby@v1
+          #   with:
+          #     ruby-version: '3.x' # Specify your Ruby version
+          #     bundler-cache: true
+          # - name: Build Jekyll site
+          #   run: bundle exec jekyll build --destination _site
+
+          - name: Upload Pages artifact
+            uses: actions/upload-pages-artifact@v3
+            with:
+              path: './_site' # Adjust this path to where your built site files are located
+
+          - name: Deploy to GitHub Pages
+            id: deployment
+            uses: actions/deploy-pages@v4
