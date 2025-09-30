@@ -13,7 +13,7 @@ Image Express is a fun and interactive web application designed to classify imag
 The app uses a **client-server architecture** for smooth performance:  
 
 1. The user selects the character set they want to classify.  
-2. They upload an image from their local device through a clean React interface.  
+2. They upload an image from their local device through a clean **SolidJS interface**.  
 3. The frontend sends the image to a **Python backend server**, which processes it and feeds it into a **CNN model**.  
 4. The classification result is sent back to the frontend and displayed to the user.  
 
@@ -30,7 +30,7 @@ This design ensures **scalability, easy maintenance, and potential for future ex
 
 ### Backend & Machine Learning Core
 - **Image Classification CNN:** Trained on extensive datasets for high-accuracy predictions.  
-- **RESTful API:** Enables seamless communication between React frontend and Python backend.  
+- **RESTful API:** Enables seamless communication between SolidJS frontend and Python backend.  
 - **Image Preprocessing:** Automatic resizing, normalization, and formatting for CNN compatibility.
 
 ---
@@ -43,5 +43,5 @@ This design ensures **scalability, easy maintenance, and potential for future ex
 ---
 
 <p align="center">
-  <b>Built with:</b> React (Frontend) | Python & CNN (Backend)
+  <b>Built with:</b> SolidJS (Frontend) | Python & CNN (Backend)
 </p>
