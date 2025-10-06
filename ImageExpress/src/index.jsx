@@ -6,6 +6,17 @@ import {Router, Route} from '@solidjs/router'
 
 const root = document.getElementById('root')
 
-render(() => <Router root={App} />,
-    
+render(() => 
+(
+
+    <Router root={App}>
+        <Route path="/categorySelection"></Route>
+        <Route path="/imageUpload"></Route>
+        <Route path="/results"></Route>
+        <Route path="/about"></Route>
+
+    </Router>
+
+),
+
 root)
