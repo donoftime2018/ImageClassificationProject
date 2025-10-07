@@ -1,3 +1,3 @@
 export function Category(){
-    return <div>CATEGORY</div>
+    return (<div>CATEGORY</div>)
 }
