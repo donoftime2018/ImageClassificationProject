@@ -4,12 +4,10 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 
-function App(props) {
+export default function App(props) {
   return (
     <>
       {props.children}
     </>
   )
 }
-
-export default App

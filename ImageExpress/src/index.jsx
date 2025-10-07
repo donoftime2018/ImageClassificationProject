@@ -16,13 +16,13 @@ const root = document.getElementById('root')
 render(() => 
 (
     <Router root={App}>
-        <Routes>
-            <Route path="/" component={Home}></Route>
-            <Route path="/categorySelection" component={Category}></Route>
-            <Route path="/imageUpload" component={ImageUpload}></Route>
-            <Route path="/results" component={Results}></Route>
-            <Route path="/about" component={About}></Route>
-        </Routes>
+        {/* <Routes> */}
+        <Route path="/" component={Home}></Route>
+        <Route path="/categorySelection" component={Category}></Route>
+        <Route path="/imageUpload" component={ImageUpload}></Route>
+        <Route path="/results" component={Results}></Route>
+        <Route path="/about" component={About}></Route>
+        {/* </Routes> */}
     </Router>
 ),
 
