@@ -4,8 +4,6 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App(props) {
-  const [count, setCount] = createSignal(0)
-
   return (
     <>
       {props.children}

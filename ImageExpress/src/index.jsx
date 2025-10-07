@@ -9,6 +9,7 @@ const Results = lazy(() => import("./components/Results/Results.jsx"))
 const Category = lazy(() => import("./components/Category/Category.jsx"))
 const ImageUpload = lazy(() => import("./components/ImageUpload/ImageUpload.jsx"))
 const About = lazy(() => import("./components/About/About.jsx"))    
+const Home = lazy(() => import("./components/Home/Home.jsx"))
 
 const root = document.getElementById('root')
 
@@ -20,6 +21,7 @@ render(() =>
         <Route path="/imageUpload" component={ImageUpload}></Route>
         <Route path="/results" component={Results}></Route>
         <Route path="/about" component={About}></Route>
+        <Route path="/" component={Home}></Route>
     </Router>
 
 ),
