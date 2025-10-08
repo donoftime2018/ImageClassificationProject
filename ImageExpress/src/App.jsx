@@ -13,7 +13,6 @@ const Home = lazy(() => import('./pages/Home.jsx'))
 
 export default function App(props) {
   return (
-    <Router>
       <main>
         <Routes>
             <Route path="/" component={Home} />
@@ -23,7 +22,5 @@ export default function App(props) {
             <Route path="/about" component={About} />
         </Routes>
       </main>
-      {/* <Outlet/> */}
-    </Router>
   )
 }

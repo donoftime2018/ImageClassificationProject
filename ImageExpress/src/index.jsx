@@ -21,10 +21,6 @@ render(() =>
 (
     <Router>
         <App/>
-        {/* <App /> */}
-            {/* <Routes> */}
-            {/* </Routes> */}
-        {/* </App> */}
     </Router>
 ),
 
