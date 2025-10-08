@@ -3,7 +3,7 @@ import { render } from 'solid-js/web'
 import { lazy } from 'solid-js'
 import './index.css'
 import App from './App.jsx'
-import {Router, Route, Routes} from '@solidjs/router'
+import {Router, Route} from '@solidjs/router'
 
 import Results from './pages/Results.jsx'
 import Category from './pages/Category.jsx'

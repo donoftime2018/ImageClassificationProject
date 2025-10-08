@@ -13,7 +13,6 @@
   },
   "dependencies": {
     "@solidjs/router": "^0.15.3",
-    "router": "^2.2.0",
     "solid-js": "^1.9.8"
   },
   "devDependencies": {
