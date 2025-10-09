@@ -6,7 +6,7 @@ export default defineConfig({
     ? `/ImageClassificationProject/?v=${Date.now()}/`
     : '/',
   plugins: [solid()],
-  build: {
-    target: 'esnext'
-  }
+  // build: {
+  //   target: 'esnext'
+  // }
 })
