@@ -9,18 +9,23 @@ import {Router, Route} from '@solidjs/router'
 // import Category from './pages/Category.jsx'
 // import ImageUpload from './pages/ImageUpload.jsx'
 // import About from './pages/About.jsx'
-// const ImageUpload = lazy(() => import('./pages/ImageUpload.jsx'))
-// const Category = lazy(() => import('./pages/Category.jsx'))
-// const Results = lazy(() => import('./pages/Results.jsx'))
-// const About = lazy(() => import('./pages/About.jsx'))
-// const Home = lazy(() => import('./pages/Home.jsx'))
+
+const ImageUpload = lazy(() => import('./pages/ImageUpload.jsx'))
+const Category = lazy(() => import('./pages/Category.jsx'))
+const Results = lazy(() => import('./pages/Results.jsx'))
+const About = lazy(() => import('./pages/About.jsx'))
+const Home = lazy(() => import('./pages/Home.jsx'))
 
 const root = document.getElementById('root')
 
 render(() => 
 (
-    <Router>
-        <App/>
+    <Router root={App}>
+        <Route path="/" component={Home} />
+        <Route path="/categorySelection" component={Category} />
+        <Route path="/imageUpload" component={ImageUpload} />
+        <Route path="/results" component={Results} />
+        <Route path="/about" component={About} />
     </Router>
 ),
 
