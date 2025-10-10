@@ -35,7 +35,7 @@ jobs:
         run: npm ci
         working-directory: ./ImageExpress
 
-      - name: Build Vite app
+      - name: Build Solid app
         run: npm run build      # creates ./dist
         working-directory: ./ImageExpress
 
