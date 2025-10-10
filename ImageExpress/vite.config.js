@@ -4,7 +4,7 @@ import solid from 'vite-plugin-solid'
 export default defineConfig({
   base: `/ImageClassificationProject/`,
   plugins: [solid()],
-  // build: {
-  //   target: 'esnext'
-  // }
+  build: {
+    target: 'esnext'
+  }
 })
