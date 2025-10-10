@@ -20,7 +20,7 @@ const root = document.getElementById('root')
 
 render(() => 
 (
-    <Router root={App} base='/ImageClassification'>
+    <Router root={App} base='/ImageClassificationProject'>
         <Route path="/" component={Home} />
         <Route path="/categorySelection" component={Category} />
         <Route path="/imageUpload" component={ImageUpload} />
