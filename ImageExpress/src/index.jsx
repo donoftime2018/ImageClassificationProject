@@ -4,11 +4,7 @@ import { lazy, Suspense } from 'solid-js'
 import './index.css'
 import App from './App.jsx'
 import {Router, Route} from '@solidjs/router'
-
-// import Results from './pages/Results.jsx'
-// import Category from './pages/Category.jsx'
-// import ImageUpload from './pages/ImageUpload.jsx'
-// import About from './pages/About.jsx'
+import 'tailwindcss'
 
 const ImageUpload = lazy(() => import('./pages/ImageUpload/ImageUpload.jsx'))
 const Category = lazy(() => import('./pages/Category/Category.jsx'))
