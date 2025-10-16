@@ -21,8 +21,8 @@ export default function Home(){
         <p>Upload a photo, choose the universe, and see the AI prediction in seconds.</p>
       </div>
 
-      <div>
-        
+      <div className='mt-9'>
+        <button class='text-black'>Get Started →</button>
       </div>
     </div>
     </>
