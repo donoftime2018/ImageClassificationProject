@@ -10,6 +10,11 @@ module.exports = {
       inter: ["Inter", 'sans-serif'],
       poppins: ["Poppins", 'sans-serif'],
       inder: ["Inder", 'sans-serif'],
+    },
+    
+    colors: {
+      'custom-blue': '#2B6DE0',
+      'custom-grey': '#E8F0FF'
     }
   }
 },

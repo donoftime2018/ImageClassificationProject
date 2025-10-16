@@ -21,7 +21,7 @@ export default function Navbar(){
 
             <ul>
               <li>
-                <button className="bg-grey-blue text-[20px] rounded-[18px]">
+                <button type="button" class="!bg-[#E8F0FF] text-[20px] rounded-[18px]">
                   <span class="font-bold">About</span>
                 </button>
               </li>

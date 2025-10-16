@@ -22,7 +22,7 @@ export default function Home(){
       </div>
 
       <div className='font-[inder] mt-9'>
-        <button class=' text-black pb-4'>Get Started →</button>
+        <button type="button" class="!bg-[#2B6DE0] text-white pb-4">Get Started →</button>
       </div>
     </div>
     </>
