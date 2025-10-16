@@ -5,6 +5,12 @@
 }
 
 @font-face {
+  font-family: "Inder";
+  font-style: normal;
+  src: url("/fonts/Inder-Regular.ttf") format("woff2");
+}
+
+@font-face {
   font-family: "Joan";
   font-style: normal;
   src: url("/fonts/Joan-Regular.ttf") format("woff2");
