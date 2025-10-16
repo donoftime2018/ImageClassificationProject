@@ -8,7 +8,7 @@ export default function Home(){
     <Navbar />
 
     <div className='home-container'>
-      <div>
+      <div className='ml-15'>
           <img src="public/images/BlueRedRect.png" alt="decor"/>
       </div>
       <div className='font-extrabold mt-5 text-4xl'>
