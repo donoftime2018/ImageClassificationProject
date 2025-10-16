@@ -8,7 +8,8 @@ module.exports = {
     fontFamily: {
       joan: ["Joan", 'sans-serif'],
       inter: ["Inter", 'sans-serif'],
-      poppins: ["Poppins", 'sans-serif']
+      poppins: ["Poppins", 'sans-serif'],
+      inder: ["Inder", 'sans-serif'],
     }
   }
 },
