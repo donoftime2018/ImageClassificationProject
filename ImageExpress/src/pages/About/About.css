@@ -1,0 +1,11 @@
+.about-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    top: 4%;
+}
+
+.about-container>*{
+    margin-bottom: 5%;
+}
