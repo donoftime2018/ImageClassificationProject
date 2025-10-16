@@ -17,8 +17,8 @@ export default function Home(){
           <p>Classify your favorite characters instantly</p>
       </div>
 
-      <div className='text-xl mt-18 ml-15'>
-        <p className='font-joan'>Upload a photo, choose the universe, and see the AI prediction in seconds.</p>
+      <div className='font-[joan] text-xl mt-18 ml-15'>
+        <p className=''>Upload a photo, choose the universe, and see the AI prediction in seconds.</p>
       </div>
 
       <div className='mt-9'>
