@@ -1,9 +1,6 @@
 module.exports = {
   theme: {
-    extend: {
-      colors: {
-        'custom-grey': '#E8F0FF', 
-      },
-    },
-  },
-};
+    backgroundColor: theme=> ({
+        'grey-blue': '#E8F0FF',
+    }) 
+}}

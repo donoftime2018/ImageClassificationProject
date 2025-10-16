@@ -1,4 +1,4 @@
-
+import "./Navbar.css"
 
 export default function Navbar(){
 
@@ -21,7 +21,7 @@ export default function Navbar(){
 
             <ul>
               <li>
-                <button className="bg-custom-grey text-[20px] rounded-[18px]">
+                <button className="bg-grey-blue text-[20px] rounded-[18px]">
                   <span class="font-bold">About</span>
                 </button>
               </li>
