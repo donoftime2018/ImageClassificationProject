@@ -10,3 +10,7 @@ body {
     flex-direction: column;
     color: white;
 }
+
+.home-container >* {
+    position: relative;
+}
