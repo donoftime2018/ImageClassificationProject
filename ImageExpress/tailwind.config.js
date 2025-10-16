@@ -1,6 +1,12 @@
 module.exports = {
   theme: {
-    backgroundColor: theme=> ({
-        'grey-blue': '#E8F0FF',
-    }) 
-}}
+    extend: {
+    fontFamily: {
+      joan: ["Joan", 'sans-serif'],
+      inter: ["Inter", 'sans-serif'],
+      poppins: ["Poppins", 'sans-serif']
+    }
+  }
+},
+plugins: []
+}

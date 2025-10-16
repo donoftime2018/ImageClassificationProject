@@ -18,11 +18,11 @@ export default function Home(){
       </div>
 
       <div className='text-xl mt-18 ml-15'>
-        <p>Upload a photo, choose the universe, and see the AI prediction in seconds.</p>
+        <p className='font-joan'>Upload a photo, choose the universe, and see the AI prediction in seconds.</p>
       </div>
 
       <div className='mt-9'>
-        <button class='text-black'>Get Started →</button>
+        <button class='text-black pb-4'>Get Started →</button>
       </div>
     </div>
     </>

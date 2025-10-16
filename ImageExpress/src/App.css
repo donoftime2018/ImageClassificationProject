@@ -4,8 +4,18 @@
   src: url("/fonts/Inter-VariableFont_opsz,wght.ttf") format("woff2");
 }
 
-body {
-  font-family: "Inter";
+@font-face {
+  font-family: "Joan";
+  font-style: normal;
+  src: url("/fonts/Joan-Regular.ttf") format("woff2");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  src: url("/fonts/Poppins-Regular.ttf") format("woff2");
+  font-weight: normal;
 }
 
 #root {
