@@ -6,6 +6,15 @@ export default function Home(){
   return (
     <>
     <Navbar />
+
+    <div className='home-container'>
+      <div>
+          <img src="public/images/BlueRedRect.png" alt="decor"/>
+      </div>
+      <div className='font-extrabold mt-5 text-4xl'>
+          <p>Classify your favorite characters instantly</p>
+      </div>
+    </div>
     </>
   );
 }
