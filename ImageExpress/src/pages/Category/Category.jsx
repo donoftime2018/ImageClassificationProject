@@ -1,5 +1,21 @@
-export default function Category(){
-    console.log("Category loaded");
+import "./Category.css"
 
-    return (<div>CATEGORY</div>)
+export default function Category(){
+
+
+    return (
+        <div className="categoryContainer">
+            <div className="text-3xl font-[poppins]">
+                <p className="font-extrabold">Select a Category</p>
+            </div>
+
+            <div class="flex flex-row justify-center space-x-45 mt-20">
+                <img src="public/images/Rectangle 6.png" alt="Pokemon" className="categoryImage"/>
+                <img src="public/images/Rectangle 7.png" alt="Thomas the Tank Engine" className="categoryImage"/>
+            </div>
+        </div>
+
+
+    
+    )
 }
