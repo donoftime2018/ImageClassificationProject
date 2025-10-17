@@ -25,7 +25,7 @@ export default function About(){
                 </ul>
             </div>
 
-            <div className="mt-20">
+            <div className="mt-20 font-[poppins]">
                 <button type='button' class="!bg-[#2B6DE0] py-2 px-4 text-white">Home</button>
             </div>
 
