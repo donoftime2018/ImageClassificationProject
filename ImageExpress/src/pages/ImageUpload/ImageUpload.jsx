@@ -8,8 +8,10 @@ export default function ImageUpload(){
             <p className="font-extrabold">Upload an Image</p>
         </div>
 
-        <div class="mt-10 bg-white stroke-[#CBD5E1] rounded-md drop-shadow-xl/50">
-    BANJo-KAzooIE
+        <div className="font-[inter] mt-10 w-196 h-68 bg-white stroke-[#Cbd5e1] stroke-1 rounded-lg drop-shadow-xl/50">
+            <p className="mt-9"><span className="font-bold">Drag & drop</span> an image here <br/>or</p>
+            <p className="mt-8">Click “Browse Files” to upload</p>
+            <button type='button' class="!bg-[#E53935] mt-5 py-2 px-4 text-white">Browse Files</button>
         </div>
     </div>
     )
