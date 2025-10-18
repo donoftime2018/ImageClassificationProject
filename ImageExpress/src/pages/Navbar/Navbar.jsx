@@ -1,4 +1,5 @@
 import "./Navbar.css"
+import {A} from "@solidjs/router"
 
 export default function Navbar(){
 
@@ -21,9 +22,12 @@ export default function Navbar(){
 
             <ul>
               <li>
-                <button type="button" class="!bg-[#E8F0FF] text-[20px] rounded-[18px]">
-                  <span class="font-bold">About</span>
-                </button>
+                <A href="/about" target='_blank'>
+                    <button type="button" class="!bg-[#E8F0FF] text-[20px] rounded-[18px]">
+                      <span class="font-bold text-black">About</span>
+                    </button>
+                </A>
+
               </li>
             </ul>
         </div>
