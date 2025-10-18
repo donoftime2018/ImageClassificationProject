@@ -1,5 +1,6 @@
 import './Home.css';
 import Navbar from '../Navbar/Navbar';
+import {A} from "@solidjs/router"
 
 export default function Home(){
   console.log("Home component loaded");
@@ -22,7 +23,7 @@ export default function Home(){
       </div>
 
       <div className='font-[inder] mt-9'>
-        <button type="button" class="!bg-[#2B6DE0] text-white pb-4">Get Started →</button>
+        <A href="/imageUpload" target='_blank'><button type="button" class="!bg-[#2B6DE0] text-white pb-4">Get Started →</button></A>
       </div>
     </div>
     </>
