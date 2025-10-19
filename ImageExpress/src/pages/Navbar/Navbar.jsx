@@ -1,8 +1,13 @@
 import "./Navbar.css"
-import {A} from "@solidjs/router"
+import {A, useNavigate} from "@solidjs/router"
 
 export default function Navbar(){
 
+  const navigate = useNavigate();
+
+  function goToAboutPage(){
+      navigate("/about");
+  }
 
     return(<>
       <nav className="bg-[#D9D9D9] p-4 fixed top-0 inset-x-0 w-full text-black font-extrabold">
@@ -22,11 +27,11 @@ export default function Navbar(){
 
             <ul>
               <li>
-                <A href="/about" target='_blank'>
-                    <button type="button" class="!bg-[#E8F0FF] text-[20px] rounded-[18px]">
+                {/* <A href="/about" target='_blank'> */}
+                    <button onClick={goToAboutPage} type="button" class="!bg-[#E8F0FF] text-[20px] rounded-[18px]">
                       <span class="font-bold text-black">About</span>
                     </button>
-                </A>
+                {/* </A> */}
 
               </li>
             </ul>

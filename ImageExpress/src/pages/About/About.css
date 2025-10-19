@@ -1,3 +1,7 @@
+body {
+    background-color: white;
+}
+
 .about-container {
     text-align: center;
     display: flex;
