@@ -1,8 +1,13 @@
 import "./ImageUpload.css";
-import {A} from "@solidjs/router"
+import {useNavigate} from "@solidjs/router"
 
 export default function ImageUpload(){
+    const navigate = useNavigate();
     console.log("Image upload component loaded");
+
+    function goToHomePage(){
+        navigate("/");
+    }
 
     return (
     <div className="uploadContainer">
@@ -27,11 +32,10 @@ export default function ImageUpload(){
 
         <div className="mt-7 flex flex-row space-x-8 font-[inter]">
             <button type='button' class="!bg-[#2B6DE0] mt-5 py-2 px-4 text-white">Classify Image</button>
-            <A href="/" target='_blank'>
-                <button type='button' class="!bg-[#D9D9D9] mt-5 py-2 px-4 text-black">
-                    <span className="font-bold">Back</span>
-                </button>
-            </A>
+            <button onClick={goToHomePage} type='button' class="!bg-[#D9D9D9] mt-5 py-2 px-4 text-black">
+                <span className="font-bold">Back</span>
+            </button>
+        
             
         </div>
     </div>

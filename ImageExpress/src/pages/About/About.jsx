@@ -1,8 +1,14 @@
 import "./About.css";
-import {A} from "@solidjs/router"
+import {A, useNavigate} from "@solidjs/router"
 
 export default function About(){
     console.log("About component loaded");
+    const navigate = useNavigate();
+
+    function goToHomePage(){
+        navigate("/");
+    }
+
     return (
         <div className="about-container">
             <div className="text-3xl font-[poppins]">
@@ -27,10 +33,10 @@ export default function About(){
             </div>
 
             <div className="mt-20 font-[poppins]">
-                <A href="/" target="_blank">
-                 <button type='button' class="!bg-[#2B6DE0] py-2 px-4 text-white">Home</button>
-                </A>
-               
+                {/* <A href="/"> */}
+                    <button onClick={goToHomePage} type='button' class="!bg-[#2B6DE0] py-2 px-4 text-white">Home</button>
+                {/* </A> */}
+        
             </div>
 
 
