@@ -9,6 +9,10 @@ export default function ImageUpload(){
         navigate("/");
     }
 
+    function goToResults(){
+        navigate("/results");
+    }
+
     return (
     <div className="uploadContainer">
         <div className="text-3xl font-[poppins]">
@@ -31,7 +35,7 @@ export default function ImageUpload(){
         </div>
 
         <div className="mt-7 flex flex-row space-x-8 font-[inter]">
-            <button type='button' class="!bg-[#2B6DE0] mt-5 py-2 px-4 text-white">Classify Image</button>
+            <button onClick={goToResults} type='button' class="!bg-[#2B6DE0] mt-5 py-2 px-4 text-white">Classify Image</button>
             <button onClick={goToHomePage} type='button' class="!bg-[#D9D9D9] mt-5 py-2 px-4 text-black">
                 <span className="font-bold">Back</span>
             </button>
