@@ -10,8 +10,8 @@ export default function Category(){
             </div>
 
             <div class="flex flex-row justify-center space-x-45 mt-29">
-                <img src="images/Group 13.png" alt="Pokemon" className="categoryImage"/>
-                <img src="images/Group 12.png" alt="Thomas the Tank Engine" className="categoryImage"/>
+                <img src="/images/Group 13.png" alt="Pokemon" className="categoryImage"/>
+                <img src="/images/Group 12.png" alt="Thomas the Tank Engine" className="categoryImage"/>
             </div>
 
              <div className="mt-35 font-[poppins]">

@@ -15,7 +15,7 @@ export default function Navbar(){
         <div className="container mx-auto flex justify-between items-center">
             <ul>
               <li>
-                <img src="images/ImageExpresslogo.png" alt="Logo"/>
+                <img src="/images/ImageExpresslogo.png" alt="Logo"/>
               </li>
             </ul>
 
