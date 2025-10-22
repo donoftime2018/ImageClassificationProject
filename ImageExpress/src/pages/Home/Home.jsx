@@ -1,6 +1,7 @@
 import './Home.css';
 import Navbar from '../Navbar/Navbar';
 import {A, useNavigate} from "@solidjs/router"
+import BlueRedRect from "../../assets/BlueRedRect.png"
 
 export default function Home(){
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ export default function Home(){
     <div className='home-container'>
 
       <div className='ml-18'>
-          <img src="/images/BlueRedRect.png" alt="decor"/>
+          <img src={BlueRedRect} alt="decor"/>
       </div>
 
       <div className='font-extrabold mt-5 text-4xl'>

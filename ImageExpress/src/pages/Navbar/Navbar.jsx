@@ -1,5 +1,6 @@
 import "./Navbar.css"
 import {A, useNavigate} from "@solidjs/router"
+import ImageExpresslogo from "../../assets/ImageExpresslogo.png"
 
 export default function Navbar(){
 
@@ -15,7 +16,7 @@ export default function Navbar(){
         <div className="container mx-auto flex justify-between items-center">
             <ul>
               <li>
-                <img src="/images/ImageExpresslogo.png" alt="Logo"/>
+                <img src={ImageExpresslogo} alt="Logo"/>
               </li>
             </ul>
 

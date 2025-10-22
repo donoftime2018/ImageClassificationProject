@@ -1,4 +1,6 @@
 import "./Category.css"
+import Group13 from "../../assets/Group 13.png"
+import Group12 from "../../assets/Group 12.png"
 
 export default function Category(){
 
@@ -10,8 +12,8 @@ export default function Category(){
             </div>
 
             <div class="flex flex-row justify-center space-x-45 mt-29">
-                <img src="/images/Group 13.png" alt="Pokemon" className="categoryImage"/>
-                <img src="/images/Group 12.png" alt="Thomas the Tank Engine" className="categoryImage"/>
+                <img src={Group13} alt="Pokemon" className="categoryImage"/>
+                <img src={Group12} alt="Thomas the Tank Engine" className="categoryImage"/>
             </div>
 
              <div className="mt-35 font-[poppins]">
