@@ -1,0 +1,8 @@
+.image-wrapper {
+    margin: 0 auto;
+    width: 80%;
+    text-align: center;
+    position: relative;
+    align-items: flex-start;
+    top: 0%;
+}

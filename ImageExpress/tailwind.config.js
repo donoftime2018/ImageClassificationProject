@@ -1,0 +1,22 @@
+module.exports = {
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+    fontFamily: {
+      joan: ["Joan", 'sans-serif'],
+      inter: ["Inter", 'sans-serif'],
+      poppins: ["Poppins", 'sans-serif'],
+      inder: ["Inder", 'sans-serif'],
+    },
+    
+    colors: {
+      'custom-blue': '#2B6DE0',
+      'custom-grey': '#E8F0FF'
+    }
+  }
+},
+plugins: []
+}

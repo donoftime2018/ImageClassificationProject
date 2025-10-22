@@ -1,0 +1,9 @@
+body {
+    background-color: white;
+}
+
+.uploadContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
