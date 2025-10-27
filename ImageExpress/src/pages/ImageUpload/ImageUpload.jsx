@@ -1,8 +1,11 @@
 import "./ImageUpload.css";
-import {useNavigate} from "@solidjs/router"
+import {useNavigate, useParams} from "@solidjs/router"
 
 export default function ImageUpload(){
     const navigate = useNavigate();
+    const params = useParams();
+
+    console.log(params.category)
     console.log("Image upload component loaded");
 
     function goToHomePage(){
