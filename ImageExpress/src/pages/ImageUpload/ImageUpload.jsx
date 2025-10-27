@@ -1,5 +1,6 @@
 import "./ImageUpload.css";
 import {useNavigate, useParams} from "@solidjs/router"
+import { onMount, onCleanup } from "solid-js";
 
 export default function ImageUpload(){
     const navigate = useNavigate();
@@ -7,6 +8,15 @@ export default function ImageUpload(){
 
     console.log(params.category)
     console.log("Image upload component loaded");
+
+    onMount(()=>{
+        document.body.style.backgroundColor = "white"
+    })
+
+    onCleanup(()=>{
+        document.body.style.backgroundColor = ""
+    })
+    
 
     function goToHomePage(){
         navigate("/");

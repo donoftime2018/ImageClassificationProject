@@ -1,7 +1,18 @@
 import "./Results.css";
 import {useNavigate} from "@solidjs/router"
+import { onMount, onCleanup } from "solid-js";
+
 export default function Results(){
     const navigate = useNavigate();
+
+    onMount(()=>{
+        document.body.style.backgroundColor = "white"
+    })
+
+    onCleanup(()=>{
+        document.body.style.backgroundColor = ""
+    })
+    
 
     function goToImageUpload(){
         navigate("/imageUpload");

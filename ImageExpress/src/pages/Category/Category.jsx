@@ -2,13 +2,22 @@ import "./Category.css"
 import Group13 from "../../assets/Group 13.png"
 import Group12 from "../../assets/Group 12.png"
 import {A, useNavigate} from "@solidjs/router"
-import { createSignal } from "solid-js"
+import { createSignal, onMount, onCleanup } from "solid-js"
 
 export default function Category(){
 
     const navigate = useNavigate();
     const [category, setCategory] = createSignal("");
     console.log(category())
+
+    onMount(()=>{
+        document.body.style.backgroundColor = "white"
+    })
+
+    onCleanup(()=>{
+        document.body.style.backgroundColor = ""
+    })
+
     function goToImageUpload(){
 
         if (category() !== "")

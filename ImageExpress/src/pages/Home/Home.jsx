@@ -1,6 +1,7 @@
 import './Home.css';
 import Navbar from '../Navbar/Navbar';
 import {A, useNavigate} from "@solidjs/router"
+import { onCleanup, onMount } from 'solid-js';
 import BlueRedRect from "../../assets/BlueRedRect.png"
 
 export default function Home(){
@@ -9,6 +10,14 @@ export default function Home(){
   function goToCategory(){
     navigate("/categorySelection");
   }
+
+  onMount(()=>{
+    document.body.style.background = "linear-gradient(#2B6DE0, #E53935)";
+  })
+
+  onCleanup(()=>{
+    document.body.style.backgroundColor = ""
+  })
 
   console.log("Home component loaded");
   return (
