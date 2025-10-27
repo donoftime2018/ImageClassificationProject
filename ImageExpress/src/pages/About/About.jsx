@@ -1,9 +1,19 @@
 import "./About.css";
 import {A, useNavigate} from "@solidjs/router"
+import { onMount, onCleanup } from "solid-js";
 
 export default function About(){
     console.log("About component loaded");
     const navigate = useNavigate();
+
+    onMount(()=>{
+        document.body.style.background = "white"
+    })
+
+    onCleanup(()=>{
+        document.body.style.background = ""
+    })
+        
 
     function goToHomePage(){
         navigate("/");

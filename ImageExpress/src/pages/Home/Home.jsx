@@ -16,7 +16,7 @@ export default function Home(){
   })
 
   onCleanup(()=>{
-    document.body.style.backgroundColor = ""
+    document.body.style.background = ""
   })
 
   console.log("Home component loaded");

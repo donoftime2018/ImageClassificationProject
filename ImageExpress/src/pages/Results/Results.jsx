@@ -6,11 +6,11 @@ export default function Results(){
     const navigate = useNavigate();
 
     onMount(()=>{
-        document.body.style.backgroundColor = "white"
+        document.body.style.background = "white"
     })
 
     onCleanup(()=>{
-        document.body.style.backgroundColor = ""
+        document.body.style.background = ""
     })
     
 

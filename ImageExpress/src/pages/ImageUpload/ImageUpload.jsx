@@ -10,7 +10,7 @@ export default function ImageUpload(){
     console.log("Image upload component loaded");
 
     onMount(()=>{
-        document.body.style.backgroundColor = "white"
+        document.body.style.background = "white"
     })
 
     onCleanup(()=>{

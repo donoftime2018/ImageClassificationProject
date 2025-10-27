@@ -11,11 +11,11 @@ export default function Category(){
     console.log(category())
 
     onMount(()=>{
-        document.body.style.backgroundColor = "white"
+        document.body.style.background = "white"
     })
 
     onCleanup(()=>{
-        document.body.style.backgroundColor = ""
+        document.body.style.backgroundr = ""
     })
 
     function goToImageUpload(){
