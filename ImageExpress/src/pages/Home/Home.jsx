@@ -6,8 +6,8 @@ import BlueRedRect from "../../assets/BlueRedRect.png"
 export default function Home(){
   const navigate = useNavigate();
 
-  function goToImageUpload(){
-    navigate("/imageUpload");
+  function goToCategory(){
+    navigate("/categorySelection");
   }
 
   console.log("Home component loaded");
@@ -30,7 +30,7 @@ export default function Home(){
       </div>
 
       <div className='font-[inder] mt-9'>
-        <button onClick={goToImageUpload} type="button" class="!bg-[#2B6DE0] text-white pb-4">Get Started →</button>
+        <button onClick={goToCategory} type="button" class="!bg-[#2B6DE0] text-white pb-4">Get Started →</button>
       </div>
     </div>
     </>
