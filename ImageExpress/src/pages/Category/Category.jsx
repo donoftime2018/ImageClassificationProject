@@ -9,6 +9,7 @@ export default function Category(){
 
     const navigate = useNavigate();
     const [category, setCategory] = createSignal("");
+    const [selected, setSelected] = createSignal(false);
     console.log(category())
 
     onMount(()=>{
@@ -28,6 +29,10 @@ export default function Category(){
     }
 
     function handleSelectCategory(selectedCategory){
+        if (selected() == true)
+        {
+            document.body.removeChild(checkMark)
+        }
         if (selectedCategory === "thomas")
         {
             setCategory("thomas")
@@ -37,9 +42,12 @@ export default function Category(){
 
             var checkMark = document.createElement("img");
             checkMark.setAttribute("src", checkmark);
-            checkMark.setAttribute("position", "absolute");
-            checkMark.setAttribute("width", "100px")
-            checkMark.setAttribute("height", "100px")
+            checkMark.style.position = "absolute"
+            checkMark.style.width = "100px"
+            checkMark.style.height = "100px"
+            checkMark.style.left = rect.left + "px";
+            checkMark.style.top = rect.top +"px"; 
+            checkMark.style.zIndex = "9999"; // ensures it’s on top
             document.body.appendChild(checkMark);
         }
 
@@ -49,6 +57,17 @@ export default function Category(){
             const element = document.getElementById("pokemonSelector")
             const rect = element.getBoundingClientRect();
             console.log(rect);
+
+            var checkMark = document.createElement("img");
+            checkMark.setAttribute("src", checkmark);
+            checkMark.style.position = "absolute"
+            checkMark.style.width = "100px"
+            checkMark.style.height = "100px"
+            checkMark.style.left = rect.left + "px";
+            checkMark.style.top = rect.top +"px"; 
+            checkMark.style.zIndex = "9999"; // ensures it’s on top
+            document.body.appendChild(checkMark);
+        
         }
     }
 
