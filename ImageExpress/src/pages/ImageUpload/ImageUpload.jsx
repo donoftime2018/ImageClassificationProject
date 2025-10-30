@@ -1,60 +1,96 @@
 import "./ImageUpload.css";
-import {useNavigate, useParams} from "@solidjs/router"
-import { onMount, onCleanup } from "solid-js";
+import { useNavigate, useParams } from "@solidjs/router";
+import { createSignal, onMount, onCleanup, Show } from "solid-js";
 
-export default function ImageUpload(){
-    const navigate = useNavigate();
-    const params = useParams();
+export default function ImageUpload() {
+  const navigate = useNavigate();
+  const { category } = useParams();
 
-    console.log(params.category)
-    console.log("Image upload component loaded");
+  const [file, setFile] = createSignal(null);
+  const [preview, setPreview] = createSignal("");
 
-    onMount(()=>{
-        document.body.style.background = "white"
-    })
+  onMount(() => { document.body.style.background = "white"; });
+  onCleanup(() => { document.body.style.background = ""; });
 
-    onCleanup(()=>{
-        document.body.style.backgroundColor = ""
-    })
-    
-
-    function goToHomePage(){
-        navigate("/");
+  function onDrop(e) {
+    e.preventDefault();
+    const f = e.dataTransfer.files?.[0];
+    if (f && f.type.startsWith("image/")) {
+      setFile(f);
+      setPreview(URL.createObjectURL(f));
     }
+  }
 
-    function goToResults(){
-        navigate("/results");
+  function onPick(e) {
+    const f = e.currentTarget.files?.[0];
+    if (f && f.type.startsWith("image/")) {
+      setFile(f);
+      setPreview(URL.createObjectURL(f));
     }
+  }
 
-    return (
+  function goToResults() {
+    if (!file()) return alert("Please select an image first.");
+    navigate("/results", { state: { category, preview: preview() } });
+  }
+
+  function goToHomePage() {
+    navigate("/");
+  }
+
+  return (
     <div className="uploadContainer">
-        <div className="text-3xl font-[poppins]">
-            <p className="font-extrabold">Upload an Image</p>
-        </div>
+      <div className="text-3xl font-[poppins]">
+        <p className="font-extrabold">Upload an Image</p>
+      </div>
 
-        <div className="font-[inter] mt-10 w-196 h-68 bg-white stroke-[#Cbd5e1] stroke-1 rounded-lg drop-shadow-xl/50">
-            <p className="mt-9"><span className="font-bold">Drag & drop</span> an image here <br/>or</p>
-            <p className="mt-8">Click “Browse Files” to upload</p>
+      <div
+        className="font-[inter] mt-10 w-196 bg-white rounded-lg shadow-xl/50 p-8 text-center border border-slate-300"
+        onDragOver={(e) => e.preventDefault()}
+        onDrop={onDrop}
+      >
+        <p className="mt-2">
+          <span className="font-bold">Drag &amp; drop</span> an image here <br />or
+        </p>
+        <p className="mt-4">Click “Browse Files” to upload</p>
 
-            <div data-hs-file-upload='{
-                "url": "/upload",
-                "acceptedFiles": "image/*",
-                "maxFiles": 1,
-                "singleton": true
-                }'>
-                <button type='button' class="!bg-[#E53935] mt-5 py-2 px-4 text-white">Browse Files</button>
-            </div>
-            
-        </div>
+        <input
+          id="fileInput"
+          type="file"
+          accept="image/*"
+          className="hidden"
+          onChange={onPick}
+        />
+        <label
+          for="fileInput"
+          class="!bg-[#E53935] inline-block mt-5 py-2 px-4 text-white rounded cursor-pointer"
+        >
+          Browse Files
+        </label>
 
-        <div className="mt-7 flex flex-row space-x-8 font-[inter]">
-            <button onClick={goToResults} type='button' class="!bg-[#2B6DE0] mt-5 py-2 px-4 text-white">Classify Image</button>
-            <button onClick={goToHomePage} type='button' class="!bg-[#D9D9D9] mt-5 py-2 px-4 text-black">
-                <span className="font-bold">Back</span>
-            </button>
-        
-            
-        </div>
+        <Show when={preview()}>
+          <div className="mt-6">
+            <img src={preview()} alt="preview" className="mx-auto max-h-64 rounded" />
+          </div>
+        </Show>
+      </div>
+
+      <div className="mt-7 flex flex-row space-x-8 font-[inter]">
+        <button
+          onClick={goToResults}
+          type="button"
+          class="!bg-[#2B6DE0] mt-5 py-2 px-4 text-white rounded"
+        >
+          Classify Image
+        </button>
+        <button
+          onClick={goToHomePage}
+          type="button"
+          class="!bg-[#D9D9D9] mt-5 py-2 px-4 text-black rounded"
+        >
+          <span className="font-bold">Back</span>
+        </button>
+      </div>
     </div>
-    )
+  );
 }
