@@ -14,9 +14,13 @@ random.seed(42)  # For reproducibility
 for class_name in os.listdir(train_path):
     train_class_dir = os.path.join(train_path, class_name)
     val_class_dir = os.path.join(val_path, class_name)
-    os.makedirs(val_class_dir, exist_ok=True)
+    os.makedirs(val_class_dir, exist_ok=True)  # Always create, even if empty
 
-    images = os.listdir(train_class_dir)
+    images = [img for img in os.listdir(train_class_dir) if os.path.isfile(os.path.join(train_class_dir, img))]
+    if len(images) == 0:
+        print(f"WARNING: No images found in {train_class_dir}. Folder will be empty in validation.")
+        continue  # Skip to next class if there are no images
+
     num_val = max(1, int(len(images) * split_ratio))
     val_images = random.sample(images, num_val)
 
