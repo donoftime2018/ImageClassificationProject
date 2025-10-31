@@ -1,9 +1,11 @@
 import "./Results.css";
-import {useNavigate} from "@solidjs/router"
+import {useNavigate, useLocation} from "@solidjs/router"
 import { onMount, onCleanup } from "solid-js";
 
 export default function Results(){
     const navigate = useNavigate();
+    const location = useLocation()
+    console.log(location.state)
 
     onMount(()=>{
         document.body.style.background = "white"
@@ -15,7 +17,7 @@ export default function Results(){
     
 
     function goToImageUpload(){
-        navigate("/imageUpload");
+        navigate(`/imageUpload/${location.state.category}`);
     }
 
     function goToHomePage(){
