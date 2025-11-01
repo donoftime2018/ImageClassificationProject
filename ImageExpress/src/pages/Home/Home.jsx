@@ -13,10 +13,12 @@ export default function Home(){
 
   onMount(()=>{
     document.body.style.background = "linear-gradient(#2B6DE0, #E53935)";
+    document.title = "Image Express"
   })
 
   onCleanup(()=>{
     document.body.style.background = ""
+    document.title = ""
   })
 
   console.log("Home component loaded");
