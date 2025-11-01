@@ -8,12 +8,10 @@ export default function About(){
 
     onMount(()=>{
         document.body.style.background = "white"
-        document.title = "About Image Express"
     })
 
     onCleanup(()=>{
         document.body.style.background = ""
-        document.title = ""
     })
         
 

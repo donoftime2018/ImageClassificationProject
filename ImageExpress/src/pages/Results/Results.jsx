@@ -9,12 +9,10 @@ export default function Results(){
 
     onMount(()=>{
         document.body.style.background = "white"
-         document.title = "Results"
     })
 
     onCleanup(()=>{
         document.body.style.background = ""
-        document.title = ""
     })
     
 

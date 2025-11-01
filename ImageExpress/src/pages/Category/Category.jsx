@@ -15,12 +15,10 @@ export default function Category(){
 
     onMount(()=>{
         document.body.style.background = "white"
-        document.title = "Category Selection"
     })
 
     onCleanup(()=>{
         document.body.style.background = ""
-        document.title = ""
         document.body.removeChild(checkMarkElement());
         setCheckMarkElement(null);
         setSelected(false)
