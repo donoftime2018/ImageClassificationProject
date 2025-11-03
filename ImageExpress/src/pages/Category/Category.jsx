@@ -14,6 +14,7 @@ export default function Category(){
 
 
     onMount(()=>{
+        document.title = "Category Selection"
         document.body.style.background = "white"
     })
 
@@ -24,6 +25,7 @@ export default function Category(){
         setCheckMarkElement(null);
         setSelected(false)
         setCategory("")
+        document.title = ""
     })
 
     function goToImageUpload(){

@@ -7,11 +7,13 @@ export default function About(){
     const navigate = useNavigate();
 
     onMount(()=>{
+        document.title = "About Image Express"
         document.body.style.background = "white"
     })
 
     onCleanup(()=>{
         document.body.style.background = ""
+        document.title = ""
     })
         
 

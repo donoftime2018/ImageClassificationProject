@@ -8,10 +8,12 @@ export default function Results(){
     console.log(location.state)
 
     onMount(()=>{
+        document.title = "Classification Result"
         document.body.style.background = "white"
     })
 
     onCleanup(()=>{
+        document.title = ""
         document.body.style.background = ""
     })
     

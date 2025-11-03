@@ -9,8 +9,8 @@ export default function ImageUpload() {
   const [file, setFile] = createSignal(null);
   const [preview, setPreview] = createSignal("");
 
-  onMount(() => { document.body.style.background = "white";  });
-  onCleanup(() => { document.body.style.background = "";   });
+  onMount(() => { document.title = "Image Upload"; document.body.style.background = "white"; });
+  onCleanup(() => { document.title = ""; document.body.style.background = ""; });
 
   function onDrop(e) {
     e.preventDefault();
