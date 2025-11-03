@@ -14,11 +14,13 @@ export default function Category(){
 
 
     onMount(()=>{
+        document.title = "Category Selection"
         document.body.style.background = "white"
     })
 
     onCleanup(()=>{
         document.body.style.background = ""
+        document.title = ""
         if (checkMarkElement() !== "")
             document.body.removeChild(checkMarkElement());
         setCheckMarkElement(null);

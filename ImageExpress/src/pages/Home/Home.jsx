@@ -12,10 +12,12 @@ export default function Home(){
   }
 
   onMount(()=>{
+    document.title = "Image Express"
     document.body.style.background = "linear-gradient(#2B6DE0, #E53935)";
   })
 
   onCleanup(()=>{
+    document.title = ""
     document.body.style.background = ""
   })
 
