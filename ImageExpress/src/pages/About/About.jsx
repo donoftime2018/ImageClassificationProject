@@ -12,8 +12,8 @@ export default function About(){
     })
 
     onCleanup(()=>{
-        document.body.style.background = ""
         document.title = ""
+        document.body.style.background = ""
     })
         
 

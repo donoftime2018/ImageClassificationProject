@@ -20,12 +20,12 @@ export default function Category(){
 
     onCleanup(()=>{
         document.body.style.background = ""
+        document.title = ""
         if (checkMarkElement() !== "")
             document.body.removeChild(checkMarkElement());
         setCheckMarkElement(null);
         setSelected(false)
         setCategory("")
-        document.title = ""
     })
 
     function goToImageUpload(){
