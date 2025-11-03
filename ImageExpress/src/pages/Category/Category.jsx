@@ -19,7 +19,8 @@ export default function Category(){
 
     onCleanup(()=>{
         document.body.style.background = ""
-        document.body.removeChild(checkMarkElement());
+        if (checkMarkElement() !== "")
+            document.body.removeChild(checkMarkElement());
         setCheckMarkElement(null);
         setSelected(false)
         setCategory("")
