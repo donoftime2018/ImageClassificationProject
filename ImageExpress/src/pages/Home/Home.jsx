@@ -1,14 +1,23 @@
 import './Home.css';
 import Navbar from '../Navbar/Navbar';
 import {A, useNavigate} from "@solidjs/router"
+import { onCleanup, onMount } from 'solid-js';
 import BlueRedRect from "../../assets/BlueRedRect.png"
 
 export default function Home(){
   const navigate = useNavigate();
 
-  function goToImageUpload(){
-    navigate("/imageUpload");
+  function goToCategory(){
+    navigate("/categorySelection");
   }
+
+  onMount(()=>{
+    document.body.style.background = "linear-gradient(#2B6DE0, #E53935)";
+  })
+
+  onCleanup(()=>{
+    document.body.style.background = ""
+  })
 
   console.log("Home component loaded");
   return (
@@ -30,7 +39,7 @@ export default function Home(){
       </div>
 
       <div className='font-[inder] mt-9'>
-        <button onClick={goToImageUpload} type="button" class="!bg-[#2B6DE0] text-white pb-4">Get Started →</button>
+        <button onClick={goToCategory} type="button" class="!bg-[#2B6DE0] text-white pb-4">Get Started →</button>
       </div>
     </div>
     </>

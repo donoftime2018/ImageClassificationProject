@@ -19,7 +19,7 @@ render(() =>
     <Router root={App} base='/ImageClassificationProject'>
         <Route path="/" component={Home} />
         <Route path="/categorySelection" component={Category} />
-        <Route path="/imageUpload" component={ImageUpload} />
+        <Route path="/imageUpload/:category" component={ImageUpload} />
         <Route path="/results" component={Results} />
         <Route path="/about" component={About} />
     </Router>

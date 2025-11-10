@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 from PIL import Image
+from uvicorn.middleware.wsgi import WSGIMiddleware
 import numpy as np
 
 app = Flask(__name__)
@@ -23,5 +24,4 @@ def predict():
 
     return jsonify({"prediction": predicted_class})
 
-if __name__ == '__main__':
-    app.run(debug=True)
+app=WSGIMiddleware(app)
