@@ -1,6 +1,7 @@
 import "./ImageUpload.css";
 import { useNavigate, useParams } from "@solidjs/router";
 import { createSignal, onMount, onCleanup, Show } from "solid-js";
+import axios from "axios";
 
 export default function ImageUpload() {
   const navigate = useNavigate();
@@ -31,7 +32,15 @@ export default function ImageUpload() {
 
   function goToResults() {
     if (!file()) return alert("Please select an image first.");
-    navigate("/results", { state: { category, preview: preview() } });
+
+    console.log(file())
+    let data = new FormData()
+    data.append("image", file())
+    axios.post("http://localhost:5000/predict", data).then((response) => {
+      console.log(response.data);
+    })
+
+    // navigate("/results", { state: { category, preview: preview() } });
   }
 
   function goToHomePage() {

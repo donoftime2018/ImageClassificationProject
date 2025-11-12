@@ -1,11 +1,13 @@
 from flask import Flask, request, jsonify
 from PIL import Image
+from flask_cors import CORS
 from uvicorn.middleware.wsgi import WSGIMiddleware
 import numpy as np
 import tensorflow as tf
 from tensorflow import keras
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/')
 def index():
