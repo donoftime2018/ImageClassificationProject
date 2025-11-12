@@ -36,6 +36,7 @@ export default function ImageUpload() {
     console.log(file())
     let data = new FormData()
     data.append("image", file())
+    data.append('universe', category)
     axios.post("http://localhost:5000/predict", data).then((response) => {
       console.log(response.data);
     })
