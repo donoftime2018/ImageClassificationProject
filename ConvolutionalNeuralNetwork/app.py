@@ -16,7 +16,7 @@ def index():
 @app.route('/predict', methods=['POST'])
 def predict():
     img_file = request.files.get('image')
-    universe = request.form.get('universe')
+    # universe = request.form.get('universe')
     if img_file is None:
         return jsonify({"error": "No image received"}), 400
 

@@ -38,7 +38,13 @@ export default function ImageUpload() {
     data.append("image", file())
     data.append('universe', category)
     axios.post("http://localhost:5000/predict", data).then((response) => {
-      console.log(response.data);
+      if (response.status === 200)
+      {
+        console.log(response.data);
+        navigate("/results", { state: { category, result: response.data } });
+      }
+    }).catch((error) => {
+      alert("Error during classification");
     })
 
     // navigate("/results", { state: { category, preview: preview() } });
