@@ -38,12 +38,16 @@ jobs:
       - name: Build Solid app
         run: npm run build      # creates ./dist
         working-directory: ./ImageExpress
+        env: 
+          vite_server: ${{ secrets.VITE_SERVER}}
 
       - name: Copy index.html to 404.html (for SPA routing)
         run: cp ./ImageExpress/dist/index.html ./ImageExpress/dist/404.html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
+        env: 
+          vite_server: ${{ secrets.VITE_SERVER}}
         with:
           path: ./ImageExpress/dist            # ✅ NOT ../dist
 
