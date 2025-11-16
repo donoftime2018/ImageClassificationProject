@@ -11,7 +11,7 @@ return defineConfig({
     target: 'esnext'
   },
   define: {
-    'import.meta.env.VITE_SERVER': JSON.stringify(process.env.VITE_SERVER)
+    'import.meta.env.VITE_SERVER': JSON.stringify(env.VITE_SERVER)
   }
   
 })
