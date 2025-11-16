@@ -1,6 +1,7 @@
 import "./ImageUpload.css";
 import { useNavigate, useParams } from "@solidjs/router";
 import { createSignal, onMount, onCleanup, Show } from "solid-js";
+import axios from "axios";
 
 export default function ImageUpload() {
   const navigate = useNavigate();
@@ -31,7 +32,23 @@ export default function ImageUpload() {
 
   function goToResults() {
     if (!file()) return alert("Please select an image first.");
-    navigate("/results", { state: { category, preview: preview() } });
+
+    console.log(file())
+    console.log(import.meta.env.VITE_SERVER)
+    let data = new FormData()
+    data.append("image", file())
+    data.append('universe', category)
+    axios.post(import.meta.env.VITE_SERVER+"/predict", data).then((response) => {
+      if (response.status === 200)
+      {
+        console.log(response.data);
+        navigate("/results", { state: { category, result: response.data } });
+      }
+    }).catch((error) => {
+      alert("Error during classification");
+    })
+
+    // navigate("/results", { state: { category, preview: preview() } });
   }
 
   function goToHomePage() {
