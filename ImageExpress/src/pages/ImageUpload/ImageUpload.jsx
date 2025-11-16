@@ -37,7 +37,7 @@ export default function ImageUpload() {
     console.log(import.meta.env.VITE_SERVER)
     let data = new FormData()
     data.append("image", file())
-    data.append('universe', category)
+    // data.append('universe', category)
     axios.post(import.meta.env.VITE_SERVER+"/predict", data).then((response) => {
       if (response.status === 200)
       {
