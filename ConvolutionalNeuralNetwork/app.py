@@ -31,6 +31,6 @@ def predict():
 
     return jsonify({"prediction": predictions.tolist()})
 
-if __name__ == '__main__':
-        app.run(debug=True)
-# app=WSGIMiddleware(app)
+# if __name__ == '__main__':
+#         app.run(debug=True)
+app=WSGIMiddleware(app)
