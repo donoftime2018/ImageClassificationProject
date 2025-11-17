@@ -36,10 +36,11 @@ jobs:
         working-directory: ./ImageExpress
 
       - name: Build Solid app
-        run: npm run build      # creates ./dist
         working-directory: ./ImageExpress
-        env: 
-          VITE_SERVER: ${{ secrets.VITE_SERVER}}
+        run: |
+          export VITE_SERVER="${{ secrets.VITE_SERVER }}"
+          echo "VITE_SERVER is $VITE_SERVER"
+          npm run build
 
 
       - name: Copy index.html to 404.html (for SPA routing)
