@@ -37,6 +37,8 @@ jobs:
 
       - name: Build Solid app
         working-directory: ./ImageExpress
+        env:
+          VITE_SERVER: ${{ secrets.VITE_SERVER }}
         run: |
           export VITE_SERVER="${{ secrets.VITE_SERVER }}"
           echo "VITE_SERVER is $VITE_SERVER"
