@@ -61,9 +61,6 @@ export default function ImageUpload() {
 
   return (
     <div className="uploadContainer">
-      <Show when={loading()}>
-        <Loading />
-      </Show>
       <div className="text-3xl font-[poppins]">
         <p className="font-extrabold">Upload an Image</p>
       </div>
@@ -91,7 +88,9 @@ export default function ImageUpload() {
         >
           Browse Files
         </label>
-
+        <Show when={loading()}>
+          <Loading />
+        </Show>
         <Show when={preview()}>
           <div className="mt-6">
             <img src={preview()} alt="preview" className="mx-auto max-h-64 rounded" />
