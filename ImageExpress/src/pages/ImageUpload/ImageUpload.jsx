@@ -35,13 +35,13 @@ export default function ImageUpload() {
   function goToResults() {
     if (!file()) return alert("Please select an image first.");
 
+    setLoading(true)
     console.log(file())
     console.log(import.meta.env.VITE_SERVER)
     let data = new FormData()
     data.append("image", file())
     // data.append('universe', category)
-    axios.post("http://127.0.0.1:5000/predict", data).then((response) => {
-      setLoading(true)
+    axios.post(import.meta.env.VITE_SERVER+"/predict", data).then((response) => {
       if (response.status === 200)
       {
         console.log(response.data);
