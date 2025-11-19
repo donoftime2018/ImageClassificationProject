@@ -45,10 +45,11 @@ export default function ImageUpload() {
       if (response.status === 200)
       {
         console.log(response.data);
-        // navigate("/results", { state: { category, result: response.data } });
+        navigate("/results", { state: { category, result: response.data } });
       }
     }).catch((error) => {
       alert("Error during classification");
+      setLoading(false)
     })
 
     // navigate("/results", { state: { category, preview: preview() } });
