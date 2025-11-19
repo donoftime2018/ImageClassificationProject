@@ -40,22 +40,18 @@ export default function Category(){
 
         console.log(selectedCategory)
         console.log(category())
-
-        var checkMark = document.createElement("img");
-        checkMark.setAttribute("src", checkmark);
-        checkMark.style.position = "absolute"
-        checkMark.style.width = "100px"
-        checkMark.style.height = "100px"
         
         if (selected() === false)
         {
             setSelected(true)
             setCategory(selectedCategory)
+            selectCategory()
         }
         else if (selectedCategory !== category() && selected() === true)
         {
             document.body.removeChild(checkMarkElement());
             setCategory(selectedCategory)
+            selectCategory()
         }
 
         else
@@ -66,11 +62,19 @@ export default function Category(){
                 setCheckMarkElement(null);
                 setSelected(false)
                 setCategory("")
-                return
             }
         }
+    }
 
-        if (selectedCategory === "thomas")
+    function selectCategory()
+    {   
+        var checkMark = document.createElement("img");
+        checkMark.setAttribute("src", checkmark);
+        checkMark.style.position = "absolute"
+        checkMark.style.width = "100px"
+        checkMark.style.height = "100px"
+        
+        if (category() === "thomas")
         {
             const element = document.getElementById("thomasSelector")
             const rect = element.getBoundingClientRect();
@@ -87,7 +91,7 @@ export default function Category(){
 
         else
         {
-            if (selectedCategory === "pokemon")
+            if (category() === "pokemon")
             {
                 const element = document.getElementById("pokemonSelector")
                 const rect = element.getBoundingClientRect();
@@ -103,8 +107,8 @@ export default function Category(){
         
         
         }
-
     }
+
 
     return (
         <div className="categoryContainer">

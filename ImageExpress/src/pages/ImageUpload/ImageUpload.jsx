@@ -1,6 +1,7 @@
 import "./ImageUpload.css";
 import { useNavigate, useParams } from "@solidjs/router";
 import { createSignal, onMount, onCleanup, Show } from "solid-js";
+import Loading from "../Loading/Loading.jsx";
 import axios from "axios";
 
 export default function ImageUpload() {
@@ -8,6 +9,7 @@ export default function ImageUpload() {
   const { category } = useParams();
 
   const [file, setFile] = createSignal(null);
+  const [loading, setLoading] = createSignal(false);
   const [preview, setPreview] = createSignal("");
 
   onMount(() => { document.title = "Image Upload"; document.body.style.background = "white"; });
@@ -33,6 +35,7 @@ export default function ImageUpload() {
   function goToResults() {
     if (!file()) return alert("Please select an image first.");
 
+    setLoading(true)
     console.log(file())
     console.log(import.meta.env.VITE_SERVER)
     let data = new FormData()
@@ -46,6 +49,7 @@ export default function ImageUpload() {
       }
     }).catch((error) => {
       alert("Error during classification");
+      setLoading(false)
     })
 
     // navigate("/results", { state: { category, preview: preview() } });
@@ -84,7 +88,9 @@ export default function ImageUpload() {
         >
           Browse Files
         </label>
-
+        <Show when={loading()}>
+          <Loading />
+        </Show>
         <Show when={preview()}>
           <div className="mt-6">
             <img src={preview()} alt="preview" className="mx-auto max-h-64 rounded" />
@@ -108,6 +114,7 @@ export default function ImageUpload() {
           <span className="font-bold">Back</span>
         </button>
       </div>
+
     </div>
   );
 }
