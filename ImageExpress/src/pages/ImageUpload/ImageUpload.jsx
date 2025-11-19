@@ -1,6 +1,7 @@
 import "./ImageUpload.css";
 import { useNavigate, useParams } from "@solidjs/router";
 import { createSignal, onMount, onCleanup, Show } from "solid-js";
+import Loading from "../Loading/Loading.jsx";
 import axios from "axios";
 
 export default function ImageUpload() {
@@ -8,6 +9,7 @@ export default function ImageUpload() {
   const { category } = useParams();
 
   const [file, setFile] = createSignal(null);
+  const [loading, setLoading] = createSignal(false);
   const [preview, setPreview] = createSignal("");
 
   onMount(() => { document.title = "Image Upload"; document.body.style.background = "white"; });
@@ -38,7 +40,8 @@ export default function ImageUpload() {
     let data = new FormData()
     data.append("image", file())
     // data.append('universe', category)
-    axios.post(import.meta.env.VITE_SERVER+"/predict", data).then((response) => {
+    axios.post("http://127.0.0.1:5000/predict", data).then((response) => {
+      setLoading(true)
       if (response.status === 200)
       {
         console.log(response.data);
@@ -108,6 +111,10 @@ export default function ImageUpload() {
           <span className="font-bold">Back</span>
         </button>
       </div>
+
+      <Show when={loading()}>
+        <Loading />
+      </Show>
     </div>
   );
 }
