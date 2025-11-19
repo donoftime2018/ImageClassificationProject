@@ -45,7 +45,7 @@ export default function ImageUpload() {
       if (response.status === 200)
       {
         console.log(response.data);
-        navigate("/results", { state: { category, result: response.data } });
+        // navigate("/results", { state: { category, result: response.data } });
       }
     }).catch((error) => {
       alert("Error during classification");
@@ -60,6 +60,9 @@ export default function ImageUpload() {
 
   return (
     <div className="uploadContainer">
+      <Show when={loading()}>
+        <Loading />
+      </Show>
       <div className="text-3xl font-[poppins]">
         <p className="font-extrabold">Upload an Image</p>
       </div>
@@ -112,9 +115,6 @@ export default function ImageUpload() {
         </button>
       </div>
 
-      <Show when={loading()}>
-        <Loading />
-      </Show>
     </div>
   );
 }
