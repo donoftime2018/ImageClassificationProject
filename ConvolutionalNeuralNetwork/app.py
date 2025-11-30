@@ -32,11 +32,15 @@ def predict():
     if universe == "thomas":
         ttte_model = tf.keras.models.load_model("ttte_model.keras")
         predictions = ttte_model.predict(img_array)
+        max_pred_index = np.argmax(predictions, axis=1)[0]
+        print(max_pred_index)
         predictions = predictions.tolist()
+        print(predictions)
+        most_accurate_pred = predictions[0][max_pred_index]
     else:
         predictions = {"error": "Unknown universe"}
 
-    return jsonify({"prediction": predictions})
+    return jsonify({"prediction": most_accurate_pred})
 
 if __name__ == '__main__':
         app.run(debug=True)
