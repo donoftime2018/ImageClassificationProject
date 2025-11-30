@@ -42,7 +42,7 @@ export default function ImageUpload() {
     data.append("image", file())
     data.append('universe', category)
     console.log(category)
-    axios.post("http://127.0.0.1:5000/predict", data).then((response) => {
+    axios.post(import.meta.env.VITE_SERVER + "/predict", data).then((response) => {
       if (response.status === 200 && category==='thomas')
       {
         console.log(response.data);
