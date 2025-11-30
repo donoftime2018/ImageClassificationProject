@@ -40,12 +40,18 @@ export default function ImageUpload() {
     console.log(import.meta.env.VITE_SERVER)
     let data = new FormData()
     data.append("image", file())
-    // data.append('universe', category)
-    axios.post(import.meta.env.VITE_SERVER+"/predict", data).then((response) => {
-      if (response.status === 200)
+    data.append('universe', category)
+    console.log(category)
+    axios.post("http://127.0.0.1:5000/predict", data).then((response) => {
+      if (response.status === 200 && category==='thomas')
       {
         console.log(response.data);
         navigate("/results", { state: { category, result: response.data } });
+      }
+      else
+      {
+        setLoading(false)
+        alert("Pokemon classification is not yet implemented.");
       }
     }).catch((error) => {
       alert("Error during classification");
@@ -55,8 +61,8 @@ export default function ImageUpload() {
     // navigate("/results", { state: { category, preview: preview() } });
   }
 
-  function goToHomePage() {
-    navigate("/");
+  function goToCategory() {
+    navigate("/categorySelection");
   }
 
   return (
@@ -107,7 +113,7 @@ export default function ImageUpload() {
           Classify Image
         </button>
         <button
-          onClick={goToHomePage}
+          onClick={goToCategory}
           type="button"
           class="!bg-[#D9D9D9] mt-5 py-2 px-4 text-black rounded"
         >
