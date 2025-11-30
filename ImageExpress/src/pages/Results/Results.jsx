@@ -7,7 +7,7 @@ export default function Results(){
     const location = useLocation()
     
     console.log(location.state)
-    console.log(location.state.result.prediction[0])
+    console.log(location.state.result)
 
     onMount(()=>{
         document.title = "Classification Result"
@@ -36,9 +36,9 @@ export default function Results(){
 
             <div className="mt-24 w-128 h-61 bg-white stroke-[#Cbd5e1] stroke-1 rounded-lg drop-shadow-md/20">
                 <div className="flex flex-col">
-                    <p className="mr-57 mt-7 font-[poppins] font-bold">Prediction: {location.state.result.prediction[0][0]}</p>
+                    <p className="mr-57 mt-7 font-[poppins] font-bold">Prediction: {location.state.result.class}</p>
                     <p className="mr-60 mt-4 font-[inter]">Category: {location.state.category}</p>
-                    <p className="mr-55 mt-3 font-[inter]">Confidence</p>
+                    <p className="mr-55 mt-3 font-[inter]">Confidence: {location.state.result.prediction}</p>
                 </div>
 
                 <div className="ml-8 mt-7 flex flex-row space-x-8 font-[inter]">
