@@ -46,6 +46,6 @@ def predict():
 
     return jsonify({"prediction": most_accurate_pred, "class": most_accurate_class})
 
-if __name__ == '__main__':
-        app.run(debug=True)
-# app=WSGIMiddleware(app)
+# if __name__ == '__main__':
+#         app.run(debug=True)
+app=WSGIMiddleware(app)
