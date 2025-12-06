@@ -6,7 +6,6 @@ from uvicorn.middleware.wsgi import WSGIMiddleware
 import numpy as np
 import tensorflow as tf
 from huggingface_hub import hf_hub_download
-import tf_keras
 
 os.environ["KERAS_BACKEND"] = "jax"
 
@@ -65,6 +64,6 @@ def predict():
 
     return jsonify({"prediction": most_accurate_pred, "class": most_accurate_class})
 
-if __name__ == '__main__':
-        app.run(debug=True)
-# app=WSGIMiddleware(app)
+# if __name__ == '__main__':
+#         app.run(debug=True)
+app=WSGIMiddleware(app)
