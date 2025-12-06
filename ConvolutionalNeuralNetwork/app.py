@@ -34,7 +34,7 @@ def predict():
         ttte_model = tf.keras.models.load_model("ttte_model.keras")
         predictions = ttte_model.predict(img_array)
         max_pred_index = np.argmax(predictions, axis=1)[0]
-        classes = os.listdir("../dataset/ttte/train")
+        classes = sorted(os.listdir("../dataset/ttte/train"))
         print(classes)
         print(max_pred_index)
         predictions = predictions.tolist()
