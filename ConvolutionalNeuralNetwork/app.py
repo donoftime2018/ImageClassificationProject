@@ -5,11 +5,18 @@ import os
 from uvicorn.middleware.wsgi import WSGIMiddleware
 import numpy as np
 import tensorflow as tf
-from tensorflow import keras
+from huggingface_hub import hf_hub_download
+import keras
+
+os.environ["KERAS_BACKEND"] = "tensorflow"
 
 app = Flask(__name__)
 CORS(app)
-ttte_model = tf.keras.models.load_model("ttte_model.keras")
+ttte_model_path = hf_hub_download(
+     repo_id=os.getenv("REPO"),
+     filename="ttte_model.keras",
+)
+ttte_model = keras.models.load_model(ttte_model_path)
 
 @app.route('/')
 def index():
@@ -46,6 +53,6 @@ def predict():
 
     return jsonify({"prediction": most_accurate_pred, "class": most_accurate_class})
 
-if __name__ == '__main__':
-        app.run(debug=True)
-# app=WSGIMiddleware(app)
+# if __name__ == '__main__':
+#         app.run(debug=True)
+app=WSGIMiddleware(app)
