@@ -9,6 +9,7 @@ from tensorflow import keras
 
 app = Flask(__name__)
 CORS(app)
+ttte_model = tf.keras.models.load_model("ttte_model.keras")
 
 @app.route('/')
 def index():
@@ -31,7 +32,6 @@ def predict():
 
     predictions = []
     if universe == "thomas":
-        ttte_model = tf.keras.models.load_model("ttte_model.keras")
         predictions = ttte_model.predict(img_array)
         max_pred_index = np.argmax(predictions, axis=1)[0]
         classes = sorted(os.listdir("../dataset/ttte/train"))
@@ -46,6 +46,6 @@ def predict():
 
     return jsonify({"prediction": most_accurate_pred, "class": most_accurate_class})
 
-# if __name__ == '__main__':
-#         app.run(debug=True)
-app=WSGIMiddleware(app)
+if __name__ == '__main__':
+        app.run(debug=True)
+# app=WSGIMiddleware(app)
