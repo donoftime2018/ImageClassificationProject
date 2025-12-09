@@ -43,7 +43,7 @@ export default function ImageUpload() {
     data.append('universe', category)
     console.log(category)
     axios.post(import.meta.env.VITE_SERVER + "/predict", data).then((response) => {
-      if (response.status === 200 && category==='thomas')
+      if (response.status === 200)
       {
         console.log(response.data);
         navigate("/results", { state: { category, result: response.data } });
@@ -51,7 +51,6 @@ export default function ImageUpload() {
       else
       {
         setLoading(false)
-        alert("Pokemon classification is not yet implemented.");
       }
     }).catch((error) => {
       alert("Error during classification");
