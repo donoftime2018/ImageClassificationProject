@@ -23,6 +23,9 @@ poke_model_path = hf_hub_download(
 tflite_interpreter_ttte = tf.lite.Interpreter(model_path=ttte_model_path)
 tflite_interpreter_ttte.allocate_tensors()
 
+tflite_interpreter_poke = tf.lite.Interpreter(model_path=poke_model_path)
+tflite_interpreter_poke.allocate_tensors()
+
 @app.route('/')
 def index():
     return "Hello, World!"
@@ -67,10 +70,26 @@ def predict():
         most_accurate_pred = predictions[0][max_pred_index]
         most_accurate_class = classes[max_pred_index]
     else:
-        predictions = {"error": "Unknown universe"}
+        input_index = tflite_interpreter_poke.get_input_details()[0]["index"]
+        output_index = tflite_interpreter_poke.get_output_details()[0]["index"]
+
+        tflite_interpreter_poke.set_tensor(input_index, img_array)
+        tflite_interpreter_poke.invoke()
+
+        predictions = tflite_interpreter_poke.get_tensor(output_index)
+        print(predictions)
+        # predictions = ttte_model.predict(img_array)
+        max_pred_index = np.argmax(predictions, axis=1)[0]
+        classes = sorted(os.listdir("../dataset/pokemon/train"))
+        print(classes)
+        print(max_pred_index)
+        predictions = predictions.tolist()
+        print(predictions)
+        most_accurate_pred = predictions[0][max_pred_index]
+        most_accurate_class = classes[max_pred_index]
 
     return jsonify({"prediction": most_accurate_pred, "class": most_accurate_class})
 
-if __name__ == '__main__':
-        app.run(debug=True)
-# app=WSGIMiddleware(app)
+# if __name__ == '__main__':
+#         app.run(debug=True)
+app=WSGIMiddleware(app)
