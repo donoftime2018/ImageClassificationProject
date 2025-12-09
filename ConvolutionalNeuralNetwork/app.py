@@ -12,8 +12,13 @@ os.environ["KERAS_BACKEND"] = "jax"
 app = Flask(__name__)
 CORS(app)
 ttte_model_path = hf_hub_download(
-     repo_id=os.getenv("REPO"),
+     repo_id=os.getenv("TTTE_REPO"),
      filename="ttte_classifier.tflite",
+)
+
+poke_model_path = hf_hub_download(
+     repo_id=os.getenv("POKE_REPO"),
+     filename="pokemon_mobilenetv2.tflite",
 )
 tflite_interpreter_ttte = tf.lite.Interpreter(model_path=ttte_model_path)
 tflite_interpreter_ttte.allocate_tensors()
@@ -37,10 +42,12 @@ def predict():
 
     img = Image.open(img_file.stream).convert('RGB')
     img = img.resize((180, 180))
-    img_array = np.array(img, dtype=np.float32) / 255.0
+    img_array = np.array(img, dtype=np.float32)
     img_array = np.expand_dims(img_array, axis=0)
 
     predictions = []
+    most_accurate_class = ""
+    most_accurate_pred = ""
     if universe == "thomas":
         input_index = tflite_interpreter_ttte.get_input_details()[0]["index"]
         output_index = tflite_interpreter_ttte.get_output_details()[0]["index"]
@@ -64,6 +71,6 @@ def predict():
 
     return jsonify({"prediction": most_accurate_pred, "class": most_accurate_class})
 
-# if __name__ == '__main__':
-#         app.run(debug=True)
-app=WSGIMiddleware(app)
+if __name__ == '__main__':
+        app.run(debug=True)
+# app=WSGIMiddleware(app)
