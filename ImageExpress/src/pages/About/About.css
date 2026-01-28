@@ -8,6 +8,7 @@ body {
     flex-direction: column;
     justify-content: center;
     top: 4%;
+    color: black;
 }
 
 .about-container>*{
